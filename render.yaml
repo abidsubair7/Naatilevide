@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: naatilevide
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn naatilevide.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
