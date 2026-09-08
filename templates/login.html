@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Login — Naatilevide{% endblock %}
+{% block content %}
+<section class="form-wrap"><div class="form-card"><p class="eyebrow">WELCOME BACK</p><h1>Login</h1><p class="muted">Continue your Naatilevide journey.</p><form method="post">{% csrf_token %}<label>Username<input name="username" required autocomplete="username"></label><label>Password<input type="password" name="password" required autocomplete="current-password"></label><button class="button" type="submit">Login →</button></form><p class="center muted">New here? <a href="{% url 'register' %}">Join Naatilevide</a></p></div></section>
+{% endblock %}
